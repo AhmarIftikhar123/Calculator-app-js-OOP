@@ -1,0 +1,361 @@
+:root {
+  /* Theme 1 */
+  --primary-background-color: #3a4663;
+  --color-text: #fff;
+  --secondary-background-color: #242d44;
+  --ternary-background-color: #d03f2f;
+  --ternary-background-color-active: #f96b5b;
+  --display-background-color: #181f33;
+  --buttons-background-color: #eae3dc;
+  --buttons-background-color-active: #fffffe;
+  --buttons-secondary-background-color: #647198;
+  --buttons-secondary-background-color-active: #a2b2e1;
+  --buttons-secondary-box-shadow: #414e73;
+  --buttons-ternary-box-shadow: #93261a;
+  --buttons-color-text: #434a59;
+  --buttons-box-shadow: #b3a497;
+}
+
+.Theme_2 {
+  /* Theme 2 */
+  --primary-background-color: #e6e6e6;
+  --color-text: #36362c;
+  --secondary-background-color: #d2cdcd;
+  --ternary-background-color: #c85402;
+  --ternary-background-color-active: #ff8a38;
+  --display-background-color: #eeeeee;
+  --buttons-background-color: #e5e4e1;
+  --buttons-background-color-active: #ffffff;
+  --buttons-secondary-background-color: #378187;
+  --buttons-secondary-background-color-active: #62b5bc;
+  --buttons-secondary-box-shadow: #1b6066;
+  --buttons-ternary-box-shadow: #873901;
+  --buttons-color-text: var(--color-texts);
+  --buttons-box-shadow: #a79e91;
+}
+
+.Theme_3 {
+  /* Theme 3 */
+  --primary-background-color: #17062a;
+  --color-text: #ffe53d;
+  --secondary-background-color: #1e0936;
+  --ternary-background-color: #00ded0;
+  --ternary-background-color-active: #93fff8;
+  --display-background-color: #1e0936;
+  --buttons-background-color: #331c4d;
+  --buttons-background-color-active: #6c34ac;
+  --buttons-secondary-background-color: #56077c;
+  --buttons-secondary-background-color: #8631af;
+  --buttons-secondary-box-shadow: #be15f4;
+  --buttons-ternary-box-shadow: #6cf9f1;
+  --buttons-color-text: var(--color-texts);
+  --buttons-box-shadow: #881c9e;
+}
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+}
+
+/* Set base font size to 10px (62.5% of 16px) for easy rem calculations */
+html {
+  font-size: 62.5%;
+}
+
+/* @font-face rule for custom fonts */
+@font-face {
+  font-family: "League Spartan";
+  src: url("images/Font/LeagueSpartan-Bold.ttf");
+}
+
+/* Ensure body takes at least the full viewport height */
+body {
+  min-height: 100vh;
+  background-color: var(--primary-background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 100ms ease-in-out;
+}
+/* Styling for the wrapper */
+.wrapper {
+  width: 100%;
+  max-width: 54rem;
+  margin-top: 10.35em;
+}
+
+/* Styling for the navigation section */
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Logo styling */
+
+  & .logo {
+    & h2 {
+      color: var(--color-text);
+      font-size: 3rem;
+      margin: 0.75rem 0 0 0.75rem;
+    }
+  }
+  /* Theme content styling */
+
+  & .theme_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+
+    /* Theme number styling */
+
+    & .theme_number {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-block: -0.75rem 0.5rem;
+
+      & > small {
+        font-size: 1.5rem;
+        color: var(--color-text);
+      }
+    }
+    /* Paragraph styling */
+
+    & p {
+      color: var(--color-text);
+      font-weight: 400;
+      font-size: 1.25rem;
+      letter-spacing: 1px;
+      margin-bottom: -1rem;
+    }
+  }
+}
+
+/* Theme switch styling */
+.theme_switch {
+  background-color: var(--display-background-color);
+  width: 7.35rem;
+  height: 2.55rem;
+  border-radius: 1.6rem;
+  position: relative;
+
+  /* Hiding Inputs  */
+  & > input {
+    display: none;
+  }
+  /* Label styling */
+  & label::after {
+    content: "";
+    height: 100%;
+    width: 2.25rem;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+  }
+  /* Scroller styling */
+
+  & label:hover ~ .scroller::after {
+    background-color: var(--ternary-background-color-active);
+  }
+  & label:nth-of-type(1)::after {
+    left: 0;
+  }
+  & label:nth-of-type(2)::after {
+    left: 24px;
+  }
+  & label:nth-of-type(3)::after {
+    right: 0;
+  }
+
+  & #theme1:checked ~ .scroller::after {
+    left: 8px;
+  }
+  & #theme2:checked ~ .scroller::after {
+    left: 28px;
+  }
+  & #theme3:checked ~ .scroller::after {
+    left: 48px;
+  }
+  & .scroller::after {
+    content: "";
+    background-color: var(--ternary-background-color);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 5.25px;
+    left: 5px;
+    transition: left 200ms ease-in-out, background-color 200ms ease-in-out;
+  }
+}
+
+/* Opt box styling */
+
+.opt_box {
+  height: 13.1rem;
+  padding: 4rem 3rem;
+  margin-top: 3.25rem;
+  background-color: var(--display-background-color);
+  border-radius: 0.75rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  text-align: right;
+  position: relative;
+
+  /* H1 styling */
+
+  & h1 {
+    color: var(--color-text);
+    font-size: 5.5rem;
+  }
+  /* Result opt styling */
+
+  & #outPut {
+    color: var(--color-text);
+    font-size: 2rem;
+    position: absolute;
+    top: 12%;
+    right: 6%;
+  }
+}
+/* Opt box scrollbar styling */
+
+.opt_box::-webkit-scrollbar {
+  visibility: hidden;
+}
+/* Calculator btns styling */
+.calc_btns {
+  margin-top: 1.9rem;
+  display: grid;
+  gap: 2.525rem;
+  padding-inline: 3.05rem;
+  padding-block: 3.35rem;
+  background-color: var(--display-background-color);
+  border-radius: 1rem;
+
+  /* Row styling */
+
+  & .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.25rem;
+
+    /*common button */
+
+    & button {
+      color: var(--buttons-color-text);
+      flex: 1;
+      padding: 1.25rem;
+      font-size: 4rem;
+      border: none;
+      border-radius: 0.85rem;
+      cursor: pointer;
+      box-shadow: inset 0 -4px var(--buttons-box-shadow);
+      transition: transform 100ms ease-in-out;
+      &:active {
+        transform: translateY(2px);
+      }
+      &:hover {
+        background-color: var(--buttons-background-color-active);
+      }
+    }
+    /* Eval button styling */
+    & #eval_btn {
+      padding: 2rem 1.4rem;
+      font-size: 2.6rem;
+      background: var(--ternary-background-color);
+      box-shadow: inset 0 -4px var(--buttons-ternary-box-shadow);
+      color: var(--color-text);
+      &:hover {
+        background-color: var(--ternary-background-color-active);
+      }
+    }
+    /* Reset and delete button styling */
+
+    & #reset_btn,
+    & #del_btn {
+      font-size: 2.6rem;
+      padding: 2rem 1.25rem;
+      background-color: var(--buttons-secondary-background-color);
+      box-shadow: inset 0 -4px var(--buttons-secondary-box-shadow);
+      color: var(--color-text);
+      &:hover {
+        background-color: var(--buttons-secondary-background-color-active);
+      }
+    }
+  }
+}
+
+/* Media queries for responsive design */
+
+@media (width < 550px) {
+  /* Styles for screens with width less than 550px */
+
+  .wrapper {
+    margin-top: 3rem;
+    padding-inline: 2.25rem;
+  }
+  /* Navigation styling */
+  .nav {
+    & .theme_content {
+      margin-bottom: -1rem;
+      & p {
+        margin-bottom: 0;
+        align-self: end;
+      }
+      & .theme_number {
+        & > small {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+  /* Opt box styling */
+  .opt_box {
+    padding: 2.5rem;
+    margin-top: 4rem;
+    & h1 {
+      font-size: 4rem;
+    }
+  }
+
+  /* calc_btns */
+  .calc_btns {
+    gap: 1.35rem;
+    padding: 2.75rem 2.5rem;
+    & .row {
+      gap: 0.85rem;
+      & button {
+        padding-block: 1.75rem;
+        border-radius: 0.5rem;
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+@media (width < 350px) {
+  /* Styles for screens with width less than 350px */
+
+  html {
+    font-size: 50%;
+  }
+  .theme_switch {
+    & .scroller::after {
+      top: 4px;
+    }
+  }
+}
+
+@media (width < 220px) {
+  /* Styles for screens with width less than 350px */
+
+  html {
+    font-size: 40%;
+  }
+}

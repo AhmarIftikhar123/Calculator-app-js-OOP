@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Calculator app</title>
+  </head>
+  <body>
+    <main class="wrapper">
+      <!-- nav-content -->
+      <section class="nav">
+        <div class="logo">
+          <h2>calc</h2>
+        </div>
+        <div class="theme_content">
+          <p>THEME</p>
+          <div>
+            <div class="theme_number">
+              <small>1</small>
+              <small>2</small>
+              <small>3</small>
+            </div>
+            <section class="theme_switch">
+              <!-- theme1 -->
+              <input type="radio" name="switch" id="theme1" checked />
+              <label for="theme1"></label>
+              <!-- theme2 -->
+              <input type="radio" name="switch" id="theme2" />
+              <label for="theme2"></label>
+              <!-- theme3 -->
+              <input type="radio" name="switch" id="theme3" />
+              <label for="theme3"></label>
+              <span class="scroller"></span>
+            </section>
+          </div>
+        </div>
+      </section>
+      <!-- opt_box -->
+      <div class="opt_box">
+        <strong id="outPut"></strong>
+        <h1><span id="userInput" contenteditable></span></h1>
+      </div>
+      <!-- calc_btns -->
+      <section class="calc_btns">
+        <div class="row">
+          <button name="digit">7</button>
+          <button name="digit">8</button>
+          <button name="digit">9</button>
+          <button id="del_btn" onclick="calculator.Reduce_1()">DEL</button>
+        </div>
+
+        <div class="row">
+          <button name="digit">4</button>
+          <button name="digit">5</button>
+          <button name="digit">6</button>
+          <button class="math_exp">+</button>
+        </div>
+
+        <div class="row">
+          <button name="digit">1</button>
+          <button name="digit">2</button>
+          <button name="digit">3</button>
+          <button class="math_exp">-</button>
+        </div>
+
+        <div class="row">
+          <button name="digit">.</button>
+          <button name="digit">0</button>
+          <button class="math_exp">/</button>
+          <button class="math_exp">x</button>
+        </div>
+
+        <div class="row">
+          <button id="reset_btn" onclick="calculator.Reset()">RESET</button>
+          <button id="eval_btn" onclick="calculator.FinalResult()">=</button>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script src="script.js"></script>
+</html>
